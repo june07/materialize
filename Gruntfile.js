@@ -618,7 +618,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-text-replace');
@@ -655,7 +655,7 @@ module.exports = function(grunt) {
     config.babel.bin.options.inputSourceMap = grunt.file.readJSON(concatFile);
   });
 
-  grunt.registerTask('jade_compile', ['jade', 'notify:jade_compile']);
+  grunt.registerTask('jade_compile', ['pug', 'notify:jade_compile']);
   grunt.registerTask('js_compile', ['concat:temp', 'configureBabel', 'babel:bin', 'clean:temp']);
   grunt.registerTask('sass_compile', [
     'sass:gh',
