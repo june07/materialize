@@ -27,3 +27,38 @@ jobs:
     - run: npm ci
     - run: npm run release --if-present
     - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+          scope: '@667'
+
+      - run: npm ci
+      - run: npm run release --if-present
+      - run: echo "registry=https://registry.npmjs.org/@667" >> .npmrc
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@june07'
+      - run: npm ci
+      - run: npm run release --if-present
+      - run: echo "registry=https://npm.pkg.github.com/@june07" >> .npmrc
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
