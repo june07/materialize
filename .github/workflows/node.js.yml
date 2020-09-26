@@ -54,6 +54,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@june07'
       - run: npm ci
       - run: npm run release --if-present
       - run: echo "registry=https://npm.pkg.github.com/@june07" >> .npmrc
