@@ -57,7 +57,7 @@ jobs:
       - run: npm ci
       - run: npm run release --if-present
       - run: echo "registry=https://npm.pkg.github.com/@june07" >> .npmrc
-      - run: sed -i -re 's/"name":\s"(((@[a-z0-9-]*)\/)?([a-z0-9-]*))"/"name":\s"'$SCOPE'\/\4"/' package.json
+      - run: sed -i -re 's/"name":\s"(((@[a-z0-9-]*)\/)?([a-z0-9-]*))"/"name":\ "'$SCOPE'\/\4"/' package.json
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
