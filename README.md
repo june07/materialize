@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://materializecss.com/">
-    <img src="https://materializecss.com/res/materialize.svg" width="150">
+  <a href="https://materializecss.github.io/materialize/">
+    <img src="https://materializecss.github.io/materialize/res/materialize.svg" width="150">
   </a>
 </p>
 
@@ -9,17 +9,17 @@
 <p align="center">
   Materialize, a CSS Framework based on material design.
   <br>
-  <a href="https://materializecss.com/"><strong>-- Browse the docs --</strong></a>
+  <a href="https://materializecss.github.io/materialize/"><strong>-- Browse the docs --</strong></a>
   <br>
   <br>
-  <a href="https://travis-ci.com/materializecss/materialize">
-    <img src="https://travis-ci.com/materializecss/materialize.svg?branch=v1-dev" alt="Travis CI badge">
+  <a href="https://github.com/materializecss/materialize/actions/">
+    <img src="https://github.com/materializecss/materialize/actions/workflows/nightly.yml/badge.svg" alt="GitHub Actions badge">
   </a>
-  <a href="https://badge.fury.io/js/materialize-css">
-    <img src="https://badge.fury.io/js/materialize-css.svg" alt="npm version badge">
+  <a href="https://www.npmjs.com/package/@materializecss/materialize">
+    <img src="https://badge.fury.io/js/%40materializecss%2Fmaterialize.svg" alt="npm version badge">
   </a>
-  <a href="https://cdnjs.com/libraries/materialize">
-    <img src="https://img.shields.io/cdnjs/v/materialize.svg" alt="CDNJS version badge">
+  <a href="https://www.jsdelivr.com/package/npm/@materializecss/materialize">
+    <img src="https://data.jsdelivr.com/v1/package/npm/@materializecss/materialize/badge" alt="jsDelivr version badge">
   </a>
   <a href="https://david-dm.org/materializecss/materialize">
     <img src="https://david-dm.org/materializecss/materialize/status.svg" alt="dependencies Status badge">
@@ -43,7 +43,7 @@
 - [Copyright and license](#copyright-and-license)
 
 ## Quickstart:
-Read the [getting started guide](https://materializecss.com/getting-started.html) for more information on how to use materialize.
+Read the [getting started guide](https://materializecss.github.io/materialize/getting-started.html) for more information on how to use materialize.
 
 - [Download the latest release](https://github.com/materializecss/materialize/releases/latest) of materialize directly from GitHub. ([Beta](https://github.com/materializecss/materialize/releases/))
 - Clone the repo: `git clone https://github.com/materializecss/materialize.git` (Beta: `git clone -b v1-dev https://github.com/materializecss/materialize.git`)
@@ -51,7 +51,7 @@ Read the [getting started guide](https://materializecss.com/getting-started.html
 - Install with [npm](https://www.npmjs.com): `npm install @materializecss/materialize` (Beta: `npm install @materializecss/materialize@next`)
 
 ## Documentation
-The documentation can be found at <https://materializecss.com>. To run the documentation locally on your machine, you need [Node.js](https://nodejs.org/en/) installed on your computer.
+The documentation can be found at <https://materializecss.github.io/materialize>. To run the documentation locally on your machine, you need [Node.js](https://nodejs.org/en/) installed on your computer.
 
 ### Running documentation locally
 Run these commands to set up the documentation:
@@ -94,4 +94,4 @@ We use Jasmine as our testing framework and we're trying to write a robust test 
 Check out the [CONTRIBUTING document](CONTRIBUTING.md) in the root of the repository to learn how you can contribute. You can also browse the [help-wanted](https://github.com/materializecss/materialize/labels/help-wanted) tag in our issue tracker to find things to do.
 
 ## Copyright and license
-Code Copyright 2018 Materialize. Code released under the MIT license.
+Code Copyright 2021 Materialize. Code released under the MIT license.

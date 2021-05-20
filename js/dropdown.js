@@ -278,6 +278,9 @@
         } while (newFocusedIndex < this.dropdownEl.children.length && newFocusedIndex >= 0);
 
         if (foundNewIndex) {
+          // Remove active class from old element
+          if (this.focusedIndex >= 0)
+            this.dropdownEl.children[this.focusedIndex].classList.remove('active');
           this.focusedIndex = newFocusedIndex;
           this._focusFocusedItem();
         }
@@ -355,7 +358,9 @@
       if (!!this.options.container) {
         $(this.options.container).append(this.dropdownEl);
       } else if (containerEl) {
-        $(containerEl).append(this.dropdownEl);
+        if (!containerEl.contains(this.dropdownEl)) {
+          $(containerEl).append(this.dropdownEl);
+        }
       } else {
         this.$el.after(this.dropdownEl);
       }
@@ -381,7 +386,12 @@
         this.focusedIndex < this.dropdownEl.children.length &&
         this.options.autoFocus
       ) {
-        this.dropdownEl.children[this.focusedIndex].focus();
+        this.dropdownEl.children[this.focusedIndex].classList.add('active');
+        this.dropdownEl.children[this.focusedIndex].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest'
+        });
       }
     }
 
@@ -419,6 +429,10 @@
       if (!alignments.top) {
         if (alignments.bottom) {
           verticalAlignment = 'bottom';
+
+          if (!this.options.coverTrigger) {
+            idealYPos -= triggerBRect.height;
+          }
         } else {
           this.isScrollable = true;
 
@@ -427,7 +441,9 @@
           if (alignments.spaceOnTop > alignments.spaceOnBottom) {
             verticalAlignment = 'bottom';
             idealHeight += alignments.spaceOnTop;
-            idealYPos -= this.options.coverTrigger ? alignments.spaceOnTop - 20 : alignments.spaceOnTop - 20 + triggerBRect.height;
+            idealYPos -= this.options.coverTrigger
+              ? alignments.spaceOnTop - 20
+              : alignments.spaceOnTop - 20 + triggerBRect.height;
           } else {
             idealHeight += alignments.spaceOnBottom;
           }
@@ -527,8 +543,25 @@
      * Place dropdown
      */
     _placeDropdown() {
+      /**
+       * Get closest ancestor that satisfies the condition
+       * @param {Element} el  Element to find ancestors on
+       * @param {Function} condition  Function that given an ancestor element returns true or false
+       * @returns {Element} Return closest ancestor or null if none satisfies the condition
+       */
+      const getClosestAncestor = function(el, condition) {
+        let ancestor = el.parentNode;
+        while (ancestor !== null && !$(ancestor).is(document)) {
+          if (condition(ancestor)) {
+            return ancestor;
+          }
+          ancestor = ancestor.parentNode;
+        }
+        return null;
+      };
+
       // Container here will be closest ancestor with overflow: hidden
-      let closestOverflowParent = M.getClosestAncestor(this.dropdownEl, (ancestor) => {
+      let closestOverflowParent = getClosestAncestor(this.dropdownEl, (ancestor) => {
         return $(ancestor).css('overflow') !== 'visible';
       });
       // Fallback

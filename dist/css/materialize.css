@@ -1,6 +1,6 @@
 /*!
- * Materialize vundefined (http://materializecss.com)
- * Copyright 2014-2017 Materialize
+ * Materialize v1.1.0-alpha (https://materializecss.github.io/materialize)
+ * Copyright 2014-2021 Materialize
  * MIT License (https://raw.githubusercontent.com/materializecss/materialize/master/LICENSE)
  */
 .materialize-red {
@@ -2764,7 +2764,7 @@ video.responsive-video {
   float: none;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .pagination {
     width: 100%;
   }
@@ -2867,13 +2867,13 @@ ul.staggered-list li {
 /*********************
   Media Query Classes
 **********************/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600.99px) {
   .hide-on-small-only, .hide-on-small-and-down {
     display: none !important;
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .hide-on-med-and-down {
     display: none !important;
   }
@@ -2885,7 +2885,7 @@ ul.staggered-list li {
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 992px) {
+@media only screen and (min-width: 601px) and (max-width: 992.99px) {
   .hide-on-med-only {
     display: none !important;
   }
@@ -2915,13 +2915,13 @@ ul.staggered-list li {
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 992px) {
+@media only screen and (min-width: 601px) and (max-width: 992.99px) {
   .show-on-medium {
     display: block !important;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600.99px) {
   .show-on-small {
     display: block !important;
   }
@@ -2933,13 +2933,13 @@ ul.staggered-list li {
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .show-on-medium-and-down {
     display: block !important;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600.99px) {
   .center-on-small-only {
     text-align: center;
   }
@@ -3019,7 +3019,7 @@ td, th {
   border-radius: 2px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   table.responsive-table {
     width: 100%;
     border-collapse: collapse;
@@ -4344,7 +4344,7 @@ nav .brand-logo.center {
           transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   nav .brand-logo {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -4503,13 +4503,13 @@ html {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 993px) {
   html {
     font-size: 14.5px;
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1201px) {
   html {
     font-size: 15px;
   }
@@ -4951,14 +4951,14 @@ small {
   z-index: 10000;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600.99px) {
   #toast-container {
     min-width: 100%;
     bottom: 0%;
   }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 992px) {
+@media only screen and (min-width: 601px) and (max-width: 992.99px) {
   #toast-container {
     left: 5%;
     bottom: 7%;
@@ -5015,7 +5015,7 @@ small {
   border-radius: 24px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600.99px) {
   .toast {
     width: 100%;
     border-radius: 0;
@@ -5113,7 +5113,7 @@ small {
   will-change: left, right;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .tabs {
     display: -webkit-box;
     display: -webkit-flex;
@@ -5814,7 +5814,7 @@ body.keyboard-focused .dropdown-content li:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .modal {
     width: 80%;
   }
@@ -5826,6 +5826,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal .modal-content {
   padding: 24px;
+  overflow-y: hidden;
 }
 
 .modal .modal-close {
@@ -6079,6 +6080,12 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .prefix ~ .chips {
   margin-left: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem);
+}
+
+.suffix ~ .chips {
+  margin-right: 3rem;
   width: 92%;
   width: calc(100% - 3rem);
 }
@@ -6566,7 +6573,9 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 }
 
 .input-field.col .prefix ~ label,
-.input-field.col .prefix ~ .validate ~ label {
+.input-field.col .prefix ~ .validate ~ label,
+.input-field.col .suffix ~ label,
+.input-field.col .suffix ~ .validate ~ label {
   width: calc(100% - 3rem - 1.5rem);
 }
 
@@ -6619,7 +6628,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   left: 0;
 }
 
-.input-field .prefix {
+.input-field .prefix, .input-field .suffix {
   position: absolute;
   width: 3rem;
   font-size: 2rem;
@@ -6628,12 +6637,13 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   top: 0.5rem;
 }
 
-.input-field .prefix.active {
+.input-field .prefix.active, .input-field .suffix.active {
   color: #26a69a;
 }
 
 .input-field .prefix ~ input,
 .input-field .prefix ~ textarea,
+.input-field .prefix ~ .select-wrapper,
 .input-field .prefix ~ label,
 .input-field .prefix ~ .validate ~ label,
 .input-field .prefix ~ .helper-text,
@@ -6647,18 +6657,40 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   margin-left: 3rem;
 }
 
-@media only screen and (max-width: 992px) {
-  .input-field .prefix ~ input {
+@media only screen and (max-width: 992.99px) {
+  .input-field .prefix ~ input,
+  .input-field .suffix ~ input {
     width: 86%;
     width: calc(100% - 3rem);
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .input-field .prefix ~ input {
+@media only screen and (max-width: 600.99px) {
+  .input-field .prefix ~ input,
+  .input-field .suffix ~ input {
     width: 80%;
     width: calc(100% - 3rem);
   }
+}
+
+.input-field .suffix {
+  right: 0;
+}
+
+.input-field .suffix ~ input,
+.input-field .suffix ~ textarea,
+.input-field .suffix ~ .select-wrapper,
+.input-field .suffix ~ label,
+.input-field .suffix ~ .validate ~ label,
+.input-field .suffix ~ .helper-text,
+.input-field .suffix ~ .autocomplete-content {
+  margin-right: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem);
+}
+
+.input-field .suffix ~ label {
+  margin-right: 3rem;
 }
 
 /* Search Field */
@@ -7313,6 +7345,16 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
   margin-left: 3rem;
 }
 
+.suffix ~ .select-wrapper {
+  margin-right: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem);
+}
+
+.suffix ~ label {
+  margin-right: 3rem;
+}
+
 .select-dropdown li img {
   height: 40px;
   width: 40px;
@@ -7587,9 +7629,7 @@ input[type=range]::-ms-thumb {
   margin: 0;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
-  height: 100%;
-  height: calc(100% + 60px);
-  height: -moz-calc(100%);
+  height: 100vh;
   padding-bottom: 60px;
   background-color: #fff;
   z-index: 999;
@@ -7737,7 +7777,6 @@ input[type=range]::-ms-thumb {
 
 .drag-target {
   height: 100%;
-  width: 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -7760,7 +7799,7 @@ input[type=range]::-ms-thumb {
   left: auto;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992.99px) {
   .sidenav.sidenav-fixed {
     -webkit-transform: translateX(-105%);
             transform: translateX(-105%);
@@ -8537,10 +8576,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8593,10 +8641,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 

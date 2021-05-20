@@ -66,31 +66,6 @@
       }
     }, 100);
 
-    // BuySellAds Detection
-    // var $bsa = $('.buysellads'),
-    //   $timesToCheck = 3;
-    // function checkForChanges() {
-    //   if (!$bsa.find('#carbonads').length) {
-    //     $timesToCheck -= 1;
-    //     if ($timesToCheck >= 0) {
-    //       setTimeout(checkForChanges, 500);
-    //     } else {
-    //       var donateAd = $(
-    //         '<div id="carbonads"><span><a class="carbon-text" href="#!" onclick="document.getElementById(\'paypal-donate\').submit();"><img src="images/donate.png" /> Help support us by turning off adblock. If you still prefer to keep adblock on for this page but still want to support us, feel free to donate. Any little bit helps.</a></form></span></div>'
-    //       );
-
-    //       $bsa.append(donateAd);
-    //     }
-    //   }
-    // }
-    // checkForChanges();
-
-    // BuySellAds Demos close button.
-    $('.buysellads.buysellads-demo .close').on('click', function() {
-      $(this)
-        .parent()
-        .remove();
-    });
 
     // Github Latest Commit
     if ($('.github-commit').length) {
@@ -256,3 +231,19 @@
     });
   }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+// Copy Button
+function copyText() {
+  const copiedText = document.getElementById('copiedText').textContent
+  const textArea = document.createElement('textArea');
+  textArea.textContent = copiedText;
+  document.body.append(textArea);
+  textArea.select();
+  textArea.setSelectionRange(0, 99999)
+  document.execCommand('copy');
+  document.getElementById('copyButton')
+  .insertAdjacentHTML('afterend',
+  `<span style="margin-left:10px; font-size:14px;">Copied!</span>`
+  )
+  // alert("Code copied to clipboard: " + textArea.value);
+  }
